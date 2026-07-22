@@ -244,18 +244,18 @@ const TRANSLATIONS = {
 
 const ORDER_OPTIONS = [
   { id: 'telegram', icon: '/patterns/telegram.svg', href: 'https://t.me/evosdeliverybot' },
-  { id: 'ios', icon: '/patterns/ios.svg', href: '#' },
-  { id: 'android', icon: '/patterns/playmarket.svg', href: '#' },
+  { id: 'ios', icon: '/patterns/ios.svg', href: 'https://apps.apple.com/uz/app/evos-uz/id1595897228' },
+  { id: 'android', icon: '/patterns/playmarket.svg', href: 'https://play.google.com/store/apps/details?id=uz.makfood.service.evos' },
   { id: 'call', icon: '/patterns/tell.svg', href: 'tel:+998712031212', divideAfter: true },
   { id: 'career', icon: '/patterns/hands.svg', href: '#' },
 ]
 
 const SOCIALS = [
-  { id: 'telegram', icon: '/patterns/telegram.svg', href: 'https://t.me/evos' },
-  { id: 'instagram', icon: '/patterns/instagram.svg', href: 'https://instagram.com/evos' },
-  { id: 'earth', icon: '/patterns/earth.svg', href: 'https://tiktok.com/@evos' },
-  { id: 'youtube', icon: '/patterns/yutube.svg', href: 'https://youtube.com/@evos' },
-  { id: 'facebook', icon: '/patterns/facebook.svg', href: 'https://facebook.com/evos' },
+  { id: 'telegram', icon: '/patterns/telegram.svg', href: 'https://t.me/evosuzbekistan' },
+  { id: 'instagram', icon: '/patterns/instagram.svg', href: 'https://www.instagram.com/evosuzbekistan?igsh=enBvNjZhcDBneHVo' },
+  { id: 'earth', icon: '/patterns/earth.svg', href: '#' },
+  { id: 'youtube', icon: '/patterns/yutube.svg', href: 'https://www.youtube.com/@evos-official' },
+  { id: 'facebook', icon: '/patterns/facebook.svg', href: 'https://www.facebook.com/evosuzbekistan/?locale=ru_RU' },
 ]
 
 function SpriteIcon({ name, className }) {
