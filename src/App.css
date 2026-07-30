@@ -1,15 +1,14 @@
 :root {
   --color-bg: #f7f9f7;
-  --color-green: #00843d;
-  --color-green-dark: #00662f;
-  --color-text: #1a202c;
-  --color-text-faint: #737373;
-  --color-text-muted: #a3a3a3;
-  --color-border: #e5e5e5;
+  --color-green: #259b07;
+  --color-green-soft: #eaf5e6;
+  --color-text: #0b0d0f;
+  --color-text-muted: #737373;
+  --color-text-faint: #b7bdba;
+  --color-border: #ebecee;
   --color-card: #ffffff;
-  --color-chip: #f0f4f1;
-  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.04);
-  --radius-lg: 16px;
+  --radius-lg: 18px;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -18,10 +17,11 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 .page {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -36,19 +36,17 @@ body {
     url('/patterns/pc_nat.svg');
   background-repeat: repeat-x;
   background-position: top center;
-  background-size: auto 130px;
-  padding-bottom: 12px;
+  background-size: auto 120px;
 }
 
 .nav__inner {
+  width: 90%;
   max-width: 1040px;
   margin: 0 auto;
-  padding: 20px 32px 10px;
+  padding: 16px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
   position: relative;
   z-index: 2;
 }
@@ -58,23 +56,17 @@ body {
 .brand {
   display: inline-flex;
   align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
 }
 
 .brand__logo {
-  height: 38px;
+  height: 48px;
   width: auto;
-  object-fit: contain;
-  display: block;
-  image-rendering: -webkit-optimize-contrast;
 }
 
 /* ---------- Language switcher ---------- */
 
 .lang {
   position: relative;
-  flex-shrink: 0;
 }
 
 .lang__trigger {
@@ -82,44 +74,26 @@ body {
   align-items: center;
   gap: 8px;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 12px;
-  padding: 10px 14px;
+  padding: 8px 12px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-text);
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.2s ease;
-  max-width: 220px;
-}
-
-.lang__trigger:hover {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
-
-.lang__label {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
 .lang__flag {
   width: 22px;
-  height: 15px;
+  height: 16px;
   object-fit: cover;
-  border-radius: 3px;
-  flex-shrink: 0;
-  image-rendering: -webkit-optimize-contrast;
+  border-radius: 2px;
 }
 
 .lang__chevron {
   width: 14px;
   height: 14px;
-  color: var(--color-text);
-  margin-left: 2px;
-  flex-shrink: 0;
   transition: transform 0.2s ease;
 }
 
@@ -131,20 +105,14 @@ body {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  min-width: 100%;
-  width: max-content;
-  max-width: 260px;
+  min-width: 150px;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 18px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-  padding: 8px;
-  z-index: 20;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 6px;
+  z-index: 100;
   list-style: none;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
 }
 
 .lang__option {
@@ -154,45 +122,41 @@ body {
   gap: 10px;
   background: none;
   border: none;
-  border-radius: 7px;
+  border-radius: 8px;
   padding: 10px 12px;
   font-size: 14px;
   font-weight: 500;
   color: var(--color-text);
   cursor: pointer;
   text-align: left;
-  transition: background-color 0.15s ease;
 }
 
-.lang__option:hover {
-  background: var(--color-chip);
+.lang__option:hover, .lang__option.active {
+  background: var(--color-green-soft);
 }
 
 /* ---------- Main content ---------- */
 
 .content {
   flex: 1;
-  width: 100%;
-  max-width: 520px;
+  width: 90%;
+  max-width: 480px;
   margin: 0 auto;
-  padding: 20px 24px 40px;
+  padding: 24px 0 40px;
   text-align: center;
-  box-sizing: border-box;
 }
 
 .title {
-  margin: 0 0 6px;
-  font-size: clamp(22px, 5vw, 30px);
+  margin: 0 0 8px;
+  font-size: 28px;
   font-weight: 800;
-  letter-spacing: -0.01em;
-  overflow-wrap: break-word;
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
-  margin: 0 0 28px;
-  font-size: 14px;
-  color: var(--color-text-faint);
-  overflow-wrap: break-word;
+  margin: 0 0 32px;
+  font-size: 15px;
+  color: var(--color-text-muted);
 }
 
 /* ---------- Option list ---------- */
@@ -210,41 +174,36 @@ body {
 .option {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   background: var(--color-card);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   padding: 14px 18px;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease;
 }
 
-.option:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+.option:active {
+  transform: scale(0.98);
 }
 
 .option__icon-wrap {
   flex-shrink: 0;
-  width: 38px;          /* Fon kvitansiyasi ham sal ixchamroq qilindi */
-  height: 38px;
-  border-radius: 12px;
-  background: var(--color-chip);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-green-soft);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Barcha ikonkalarni bir xil va kichikroq qilish */
-/* Oddiy ikonkalarning o'lchami */
 .option__icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
-  image-rendering: -webkit-optimize-contrast;
 }
 
-/* Hands (qo'llar) ikonkasini ko'rinishi teng bo'lishi uchun alohida kattalashtirish */
 .option__icon--career {
   width: 28px;
   height: 28px;
@@ -259,18 +218,17 @@ body {
 }
 
 .option__title {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--color-text);
-  overflow-wrap: break-word;
 }
 
 .option__subtitle {
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.02em;
   color: var(--color-text-faint);
-  overflow-wrap: break-word;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .option__chevron {
@@ -281,103 +239,66 @@ body {
 }
 
 .option-divider {
-  height: 1px;
-  background: var(--color-border);
-  margin: 12px 10px 0;
+  display: none; /* Figma dizaynida dividerlar yo'q, gap ishlatilgan */
 }
 
 /* ---------- Socials & footer ---------- */
 
 .social-label {
-  margin: 36px 0 16px;
-  font-size: 13px;
-  color: var(--color-text-faint);
-  overflow-wrap: break-word;
+  margin: 40px 0 16px;
+  font-size: 14px;
+  color: var(--color-text-muted);
 }
 
 .socials {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 12px;
-  margin: 0 0 28px 0;
+  margin: 0 0 32px;
   padding: 0;
   list-style: none;
 }
 
 .socials__link {
-  width: 40px;          /* Ijtimoiy tarmoq bloklari ham bir oz ixchamlashtirildi */
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
   background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  flex-shrink: 0;
-  text-decoration: none;
-}
-
-.socials__link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .socials__img {
-  width: 20px;          /* Social iconlar ham 20px o'lchamga keltirildi */
-  height: 20px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
-  display: block;
-  image-rendering: -webkit-optimize-contrast;
 }
 
 .footer {
   margin: 0;
   font-size: 12px;
   color: var(--color-text-faint);
-  overflow-wrap: break-word;
 }
 
-/* ---------- Mobile responsive ---------- */
+/* ---------- Responsive ---------- */
 
-@media (max-width: 600px) {
-  /* .nav {
-    background-image:
-      linear-gradient(180deg, rgba(247, 249, 247, 0) 0%, rgba(247, 249, 247, 0.75) 65%, var(--color-bg) 100%),
-      url('/patterns/mobil_nat.png');
-    background-size: auto 110px;
-  } */
-
-  .nav__inner {
-    padding: 16px 18px 8px;
-  }
-
-  .lang__trigger {
-    max-width: 160px;
-    padding: 8px 12px;
-  }
-
-  .content {
-    padding: 16px 18px 32px;
-  }
-
+@media (max-width: 480px) {
   .title {
-    font-size: clamp(20px, 6vw, 24px);
+    font-size: 24px;
+  }
+  
+  .nav__inner {
+    padding: 12px 0;
+  }
+  
+  .brand__logo {
+    height: 40px;
   }
 
-  .option {
-    padding: 12px 14px;
-  }
-}
-
-@media (max-width: 360px) {
   .lang__label {
-    display: none;
-  }
-
-  .lang__chevron {
-    margin-left: 0;
+    font-size: 13px;
   }
 }
