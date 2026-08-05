@@ -73,7 +73,7 @@ body {
   margin: 0 auto;
   padding: 20px 32px 10px;
   display: flex;
-  align-items: center;
+  align-items: center; /* Elementlarni bir xil vertikal o'qda markazlash */
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
@@ -91,7 +91,7 @@ body {
 }
 
 .brand__logo {
-  height: 38px;
+  height: 38px; /* Logotip balandligi */
   width: auto;
   object-fit: contain;
   display: block;
@@ -103,16 +103,20 @@ body {
 .lang {
   position: relative;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
 .lang__trigger {
   display: flex;
   align-items: center;
   gap: 8px;
+  height: 38px; /* EVOS logotipi bilan bir xil balandlikka keltirildi */
+  box-sizing: border-box; /* Ichki padding balandlikka ta'sir qilmaydi */
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
-  padding: 10px 14px;
+  padding: 0 14px; /* Vertikal padding 0 qilinib height orqali markazlandi */
   font-size: 14px;
   font-weight: 500;
   color: var(--color-text);
@@ -399,8 +403,13 @@ body {
   }
 
   .lang__trigger {
+    height: 34px; /* Kichik ekranda mutanosib kichraytirish */
     max-width: 160px;
-    padding: 8px 12px;
+    padding: 0 10px;
+  }
+
+  .brand__logo {
+    height: 34px;
   }
 
   .content {
