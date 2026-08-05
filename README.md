@@ -29,4 +29,3 @@ qatoridagi kengaytmani ham mos ravishda o'zgartiring (masalan `.png`).
 ## Shrift
 
 Google Fonts orqali **Inter Tight** ulangan (`index.html`).
-# tree_link
