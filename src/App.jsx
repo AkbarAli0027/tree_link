@@ -443,10 +443,10 @@ const TRANSLATIONS = {
 
 const ORDER_OPTIONS = [
   { id: 'telegram', icon: '/patterns/telegram.svg', href: 'https://t.me/evosdeliverybot' },
-  { id: 'ios', icon: '/patterns/ios.svg', href: '#' },
-  { id: 'android', icon: '/patterns/playmarket.svg', href: '#' },
+  { id: 'ios', icon: '/patterns/ios.svg', href: 'https://apps.apple.com/uz/app/evos-uz/id1595897228' },
+  { id: 'android', icon: '/patterns/playmarket.svg', href: 'https://play.google.com/store/apps/details?id=uz.makfood.service.evos' },
   { id: 'call', icon: '/patterns/tell.svg', href: 'tel:+998712031212', divideAfter: true },
-  { id: 'career', icon: '/patterns/hands.svg', href: '#' },
+  { id: 'career', icon: '/patterns/hands.svg', href: 'https://www.instagram.com/hr_evos_uz/' },
 ]
 
 const SOCIALS = [
