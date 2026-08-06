@@ -324,12 +324,23 @@ body {
   color: var(--color-green);
 }
 
-.option-divider {
+/* .option-divider {
   width: 100%;
   max-width: 466px;
   height: 1px;
   background: var(--color-border);
   margin: 12px 0 0;
+} */
+
+.option-divider {
+  width: 100%; /* Konteyner kengligiga moslashish uchun */
+  max-width: 223px; /* Figmadagi talabga ko'ra kalta kenglik */
+  height: 1px;
+  border: 2px;
+  background: #C4C9D2; /* Seriy rang */
+  
+  /* Tepadan 12px joy, va markazga tekislash (agar kerak bo'lsa) */
+  margin: 12px auto 0; 
 }
 
 /* ---------- Socials & footer ---------- */
