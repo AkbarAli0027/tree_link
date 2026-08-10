@@ -310,6 +310,7 @@
 }
 
 /* ---------- Socials & footer ---------- */
+/* ---------- Socials & footer ---------- */
 
 .social-label-row {
   display: flex;
@@ -317,25 +318,21 @@
   justify-content: space-between;
   gap: 12px;
   width: 100%;
-  max-width: 486px; /* Kartochka kengligi bilan bir xil qilindi */
-  margin: 36px auto 16px; /* Markazlashtirildi */
-  padding: 0 4px; /* Chetlaridan ozgina ichki joy qoldirildi */
+  max-width: 486px; /* Kartochka kengligi bilan aniq bir xil */
+  margin: 36px auto 16px; /* Avto-margin yordamida kartochkalar bilan bir xil markazlanadi */
+  padding: 0; /* Ortikcha ichki joylar olib tashlandi, chap tomondagi kartochka chetiga taqaladi */
   box-sizing: border-box;
 }
 
 .social-label {
   margin: 0;
-  flex: 1 1 auto;
   min-width: 0;
   font-size: 15px;
   line-height: 20px;
-  font-weight: 500;
-  color: var(--color-text-secondary);
+  font-weight: 600; /* Qalinroq qilindi */
+  color: var(--color-text); /* Asosiy to'q qora rangga o'tkazildi */
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
-
 /* Desktopda to'liq matn, mobilga o'tganda qisqa matn ko'rinadi */
 .social-label__short {
   display: none;
