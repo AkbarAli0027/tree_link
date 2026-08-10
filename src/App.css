@@ -27,7 +27,7 @@
   transform: translateY(-50%);
 }
 
-/* O'ng naqsh: eng pastki burchakka taqalgan (kesilgan qismi bilinmasligi uchun) */
+/* O'ng naqsh: eng pastki burchakka taqalgan */
 .bg-pattern--right {
   right: 0;
   bottom: 0;
@@ -39,9 +39,6 @@
   position: relative;
   z-index: 2;
   background-color: var(--color-bg);
-  background-image:
-    linear-gradient(180deg, rgba(247, 249, 247, 0) 0%, rgba(247, 249, 247, 0.75) 65%, var(--color-bg) 100%),
-    url('/patterns/pc_nat.svg');
   background-repeat: repeat-x;
   background-position: top center;
   background-size: auto 130px;
@@ -53,7 +50,7 @@
   margin: 0 auto;
   padding: 20px 32px 10px;
   display: flex;
-  align-items: center; /* Elementlarni bir xil vertikal o'qda markazlash */
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
@@ -71,7 +68,7 @@
 }
 
 .brand__logo {
-  height: 38px; /* Logotip balandligi */
+  height: 38px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -91,12 +88,12 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 38px; /* EVOS logotipi bilan bir xil balandlikka keltirildi */
-  box-sizing: border-box; /* Ichki padding balandlikka ta'sir qilmaydi */
+  height: 38px;
+  box-sizing: border-box;
   background: var(--color-card);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
-  padding: 0 14px; /* Vertikal padding 0 qilinib height orqali markazlandi */
+  padding: 0 14px;
   font-size: 14px;
   font-weight: 500;
   color: var(--color-text);
@@ -305,24 +302,65 @@
 }
 
 .option-divider {
-  width: 100%; /* Konteyner kengligiga moslashish uchun */
-  max-width: 223px; /* Figmadagi talabga ko'ra kalta kenglik */
+  width: 100%;
+  max-width: 223px;
   height: 1px;
-  background: var(--color-divider); /* Seriy rang */
-
-  /* Tepadan 12px joy, va markazga tekislash (agar kerak bo'lsa) */
+  background: var(--color-divider);
   margin: 12px auto 0;
 }
 
 /* ---------- Socials & footer ---------- */
 
+.social-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  max-width: 486px; /* Kartochka kengligi bilan bir xil qilindi */
+  margin: 36px auto 16px; /* Markazlashtirildi */
+  padding: 0 4px; /* Chetlaridan ozgina ichki joy qoldirildi */
+  box-sizing: border-box;
+}
+
 .social-label {
-  margin: 36px 0 16px;
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
   font-size: 15px;
   line-height: 20px;
   font-weight: 500;
   color: var(--color-text-secondary);
-  overflow-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Desktopda to'liq matn, mobilga o'tganda qisqa matn ko'rinadi */
+.social-label__short {
+  display: none;
+}
+
+.social-view-all {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--color-green-bright);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.social-view-all:hover {
+  color: var(--color-green);
+}
+
+.social-view-all:active {
+  transform: translateY(1px);
 }
 
 .socials {
@@ -330,7 +368,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 15px;
   margin: 0 0 28px 0;
   padding: 0;
   list-style: none;
@@ -371,11 +409,170 @@
   overflow-wrap: break-word;
 }
 
+/* ---------- Socials page ---------- */
+
+.socials-page {
+  text-align: left;
+}
+
+.socials-page__title {
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.socials-page__title:focus {
+  outline: none;
+}
+
+.socials-page__subtitle {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.socials-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.socials-list li {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.socials-row {
+  width: 100%;
+  max-width: 486px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--color-card);
+  border-radius: 18px;
+  box-shadow: var(--shadow-card);
+  padding: 16px 18px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.socials-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.socials-row__icon-wrap {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background-color: #E7F3E0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials-row__icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.socials-row__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.socials-row__name {
+  font-size: 17px;
+  line-height: 23px;
+  font-weight: 600;
+  color: var(--color-text);
+  overflow-wrap: break-word;
+}
+
+.socials-row__subtitle {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--color-text-soft);
+  overflow-wrap: break-word;
+}
+
+.socials-row__chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-green);
+}
+
+.socials-page__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  max-width: 486px;
+  margin: 18px auto 0;
+  padding: 14px 18px;
+  background: var(--color-card);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+  box-shadow: var(--shadow-card);
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 40px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.socials-page__back:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.socials-page__back:active {
+  transform: translateY(0);
+}
+
+.socials-page__back-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-text);
+}
+
 /* ---------- Responsiveness ---------- */
 
 @media (max-width: 1024px) {
-  .bg-pattern {
-    display: none; /* Ekran 1024px dan kichiklashganda naqshlar yashiriladi */
+  .bg-pattern--right {
+    display: none;
+  }
+
+  .bg-pattern--left {
+    width: auto;
+    height: auto;
+    max-width: 75vw;
+    max-height: 62vh;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .social-label__full {
+    display: none;
+  }
+
+  .social-label__short {
+    display: inline;
   }
 }
 
@@ -385,7 +582,7 @@
   }
 
   .lang__trigger {
-    height: 34px; /* Kichik ekranda mutanosib kichraytirish */
+    height: 34px;
     max-width: 160px;
     padding: 0 10px;
   }
@@ -404,6 +601,52 @@
 
   .option {
     padding: 12px 14px;
+  }
+
+  .social-label-row {
+    gap: 8px;
+  }
+
+  .socials {
+    gap: 12px;
+  }
+
+  .socials__link {
+    width: 54px;
+    height: 54px;
+  }
+}
+
+/* Juda tor ekranlar (kichik telefonlar) */
+@media (max-width: 380px) {
+  .content {
+    padding: 14px 14px 28px;
+  }
+
+  .social-label,
+  .social-view-all {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .socials__link {
+    width: 50px;
+    height: 50px;
+  }
+
+  .option {
+    padding: 11px 12px;
+    gap: 12px;
+  }
+
+  .option__icon-wrap {
+    width: 44px;
+    height: 44px;
+  }
+
+  .option__chevron {
+    width: 18px;
+    height: 18px;
   }
 }
 

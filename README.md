@@ -14,7 +14,7 @@ Production build:
 ```bash
 npm run build
 npm run preview
-```
+``` 
 
 ## Fon naqshi (pc_nat / mobil_nat)
 
