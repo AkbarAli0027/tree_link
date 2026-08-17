@@ -31,7 +31,7 @@ body {
 }
 
 body {
-  background: var(--color-bg);
+  background: linear-gradient(180deg, #41af28 0%, #006500 100%);
   color: var(--color-text);
   font-family: var(--font-display);
   -webkit-font-smoothing: antialiased;
