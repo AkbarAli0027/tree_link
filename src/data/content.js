@@ -77,4 +77,5 @@ export const SOCIALS = [
   { id: 'youtube', label: 'YouTube', subtitle: 'EVOS Uzbekistan', icon: '/patterns/yutube.svg', href: 'https://youtube.com/@evos' },
   { id: 'linkedin', label: 'LinkedIn', subtitle: 'EVOS', icon: '/patterns/LinkedIn.svg', href: 'https://uz.linkedin.com/company/evos-hr' },
   { id: 'evos', label: 'evos', subtitle: 'EVOS', icon: '/patterns/web.svg', href: 'https://evos.uz/' },
+  // { id: 'evos', label: 'evos', subtitle: 'EVOS', icon: '/patterns/web.svg', href: 'https://evos.uz/' },
 ]
