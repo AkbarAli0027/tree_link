@@ -1,661 +1,1295 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+html {
+  background: #008000;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background:
+    linear-gradient(180deg,
+      #1da51b 0%,
+      #008000 100%);
+
+  color: #ffffff;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+  --color-green: #159b17;
+  --color-card: #ffffff;
+  --color-chip: #e7f3e0;
+  --color-text: #171717;
+  --color-text-soft: #6f6f6f;
+  --color-divider: rgba(255, 255, 255, 0.25);
+
+  --shadow-card:
+    0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
 .page {
-  min-height: 100vh;
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
   overflow-x: hidden;
+
+  background:
+    linear-gradient(180deg,
+      #20a51b 0%,
+      #008000 100%);
 }
 
-/* ---------- Background Patterns ---------- */
+
+/* =========================================================
+   BACKGROUND PATTERNS
+========================================================= */
+
 .bg-pattern {
   position: fixed;
+
   pointer-events: none;
-  z-index: 0;
   user-select: none;
-  filter: opacity(3.2);
+
+  z-index: 0;
+
+  height: auto;
+
+  display: block;
 }
 
-/* ----- DESKTOP naqshlar: (>600px) ----- */
+
+/* DESKTOP */
+
 .bg-pattern--desktop {
-  width: clamp(340px, 32vw, 520px);
+  width: clamp(340px,
+      32vw,
+      520px);
+
   max-width: none;
-  height: auto;
 }
+
+
+/* LEFT */
 
 .bg-pattern--desktop-left {
+  left: -0.5vw;
   bottom: -1vh;
 }
+
+
+/* RIGHT */
 
 .bg-pattern--desktop-right {
   right: -0.5vw;
   bottom: -0.5vh;
 }
 
-/* ----- MOBILE naqshlar: (<=600px) ----- */
+
+/* MOBILE BACKGROUND HIDDEN */
+
 .bg-pattern--mobile {
   display: none;
 }
 
-/* ---------- Odamlar (men / girl) - Desktop Asos ---------- */
+
+/* =========================================================
+   PEOPLE — DESKTOP
+========================================================= */
 
 .people {
   position: relative;
-  z-index: 1;
+
   width: 100%;
+
+  z-index: 4;
+
+  pointer-events: none;
 }
+
+
+/* PEOPLE BASE */
 
 .person {
   position: fixed;
+
   bottom: 0;
-  height: clamp(680px, 94vh, 1400px);
-  width: auto;
-  max-width: none;
+
+  display: grid;
+
+  width: max-content;
+  height: clamp(680px,
+      94vh,
+      1400px);
+
+  margin: 0;
+  padding: 0;
+
   pointer-events: none;
   user-select: none;
-  z-index: 1;
+
+  z-index: 4;
+
+  animation: none !important;
 }
+
+
+/* MAN */
+
+.person--men {
+  left: 0;
+}
+
+
+/* GIRL */
 
 .person--girl {
   right: 0;
 }
 
-/* ---------- Heart Icon (erkak kishi va qiz kishi qo'li ustida) ---------- */
+
+/* PERSON IMAGE */
+
+.person__img {
+  grid-area: 1 / 1;
+  display: block;
+  width: auto;
+  height: 107%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  animation: none !important;
+}
+
+
+/* =========================================================
+   HEARTS
+========================================================= */
 
 .heart-icon {
-  position: fixed;
-  z-index: 2;
-  width: clamp(130px, 2.6vw, 46px);
-  height: auto;
+  grid-area: 1 / 1;
+
+  position: absolute;
+
+  z-index: 5;
+
+  width: auto;
+
   pointer-events: none;
   user-select: none;
+
+  animation: none !important;
+
+  transform:
+    translate(-50%, -50%);
 }
+
+
+/* MAN HEART */
 
 .heart-icon--men {
-  left: 3vw;
-  bottom: 52vh;
+  left: 14%;
+  top: 36%;
+
+  height: 20%;
 }
 
-/* Desktopda qizning yurakchalari — endi ko'rinadi, barmoqlari ustiga qo'yiladi */
+
+/* GIRL RIGHT HEART */
+
 .heart-icon--girl-1 {
-  right: 16.8vw;
-  bottom: 46vh;
-  width: clamp(150px, 2vw, 40px);
+  left: 84.5%;
+  top: 43%;
+
+  height: 25%;
 }
+
+
+/* GIRL LEFT HEART */
 
 .heart-icon--girl-2 {
-  right: 5.5vw;
-  bottom: 46vh;
-  width: clamp(110px, 2vw, 40px);
+  left: 53%;
+  top: 43%;
+
+  height: 17.5%;
 }
 
-/* ---------- Header / Nav ---------- */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .nav {
   position: relative;
-  z-index: 3;
+
+  z-index: 10;
+
+  width: 100%;
+
   background: transparent;
-  background-repeat: repeat-x;
-  background-position: top center;
-  background-size: auto 130px;
+
   padding-bottom: 12px;
 }
 
+
 .nav__inner {
-  max-width: 1740px;
-  margin: 0 auto;
-  padding: 20px 16px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
   position: relative;
-  z-index: 2;
+
+  z-index: 10;
+
+  width: 100%;
+  max-width: 1740px;
+
+  margin: 0 auto;
+
+  padding:
+    20px 16px 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
 }
 
-/* ---------- Logo ---------- */
+
+/* =========================================================
+   LOGO
+========================================================= */
 
 .brand {
   display: inline-flex;
+
   align-items: center;
+
   text-decoration: none;
+
   flex-shrink: 0;
 }
 
+
 .brand__logo {
-  height: 44px;
-  width: auto;
-  object-fit: contain;
   display: block;
-  image-rendering: -webkit-optimize-contrast;
+
+  width: auto;
+  height: 44px;
+
+  object-fit: contain;
+
+  image-rendering:
+    -webkit-optimize-contrast;
 }
 
-/* ---------- Language switcher ---------- */
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
 
 .lang {
   position: relative;
-  flex-shrink: 0;
+
   display: flex;
+
   align-items: center;
+
+  flex-shrink: 0;
 }
+
 
 .lang__trigger {
   display: flex;
+
   align-items: center;
+
   gap: 8px;
+
   height: 46px;
-  box-sizing: border-box;
-  background: var(--color-card);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
+
   padding: 0 14px;
+
+  max-width: 220px;
+
+  box-sizing: border-box;
+
+  background:
+    var(--color-card);
+
+  border:
+    1px solid rgba(0, 0, 0, 0.08);
+
+  border-radius: 12px;
+
   font-size: 14px;
   font-weight: 500;
-  color: var(--color-text);
+
+  color:
+    var(--color-text);
+
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.2s ease;
-  max-width: 220px;
+
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.05);
+
+  transition:
+    box-shadow 0.2s ease;
 }
+
 
 .lang__trigger:hover {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
+
 .lang__label {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   min-width: 0;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
 }
+
 
 .lang__flag {
   width: 22px;
   height: 15px;
-  object-fit: cover;
-  border-radius: 3px;
+
   flex-shrink: 0;
-  image-rendering: -webkit-optimize-contrast;
+
+  object-fit: cover;
+
+  border-radius: 3px;
 }
+
 
 .lang__chevron {
   width: 14px;
   height: 14px;
-  color: var(--color-text);
-  margin-left: 2px;
+
   flex-shrink: 0;
-  transition: transform 0.2s ease;
+
+  color:
+    var(--color-text);
+
+  margin-left: 2px;
+
+  transition:
+    transform 0.2s ease;
 }
 
+
 .lang__chevron--rotated {
-  transform: rotate(180deg);
+  transform:
+    rotate(180deg);
 }
+
 
 .lang__menu {
   position: absolute;
-  top: calc(100% + 8px);
+
+  top:
+    calc(100% + 8px);
+
   right: 0;
+
+  z-index: 30;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
   min-width: 100%;
   width: max-content;
   max-width: 260px;
-  background: var(--color-card);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 18px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-  padding: 8px;
-  z-index: 20;
-  list-style: none;
+
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  padding: 8px;
+
+  list-style: none;
+
+  background:
+    var(--color-card);
+
+  border:
+    1px solid rgba(0, 0, 0, 0.08);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.08);
 }
+
 
 .lang__option {
   width: 100%;
+
   display: flex;
+
   align-items: center;
+
   gap: 10px;
-  background: none;
-  border: none;
-  border-radius: 7px;
+
   padding: 10px 12px;
+
+  background: none;
+
+  border: none;
+
+  border-radius: 7px;
+
   font-size: 14px;
+
   font-weight: 500;
-  color: var(--color-text);
+
+  color:
+    var(--color-text);
+
   cursor: pointer;
+
   text-align: left;
-  transition: background-color 0.15s ease;
 }
+
 
 .lang__option:hover {
-  background: var(--color-chip);
+  background:
+    var(--color-chip);
 }
 
-/* ---------- Main content ---------- */
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
 
 .content {
   position: relative;
-  z-index: 2;
+
+  z-index: 8;
+
   flex: 1;
+
   width: 100%;
   max-width: 534px;
+
   margin: 0 auto;
-  padding: 20px 24px 40px;
-  text-align: center;
+
+  padding:
+    20px 24px 40px;
+
   box-sizing: border-box;
+
+  text-align: center;
 }
+
+
+/* TITLE */
 
 .title {
-  margin: 0 0 6px;
-  font-size: clamp(22px, 5vw, 30px);
+  margin:
+    0 0 6px;
+
+  font-size:
+    clamp(22px,
+      5vw,
+      30px);
+
+  line-height: 1.2;
+
   font-weight: 700;
-  letter-spacing: -0.01em;
-  overflow-wrap: break-word;
+
+  letter-spacing:
+    -0.01em;
+
   color: #ffffff;
+
+  overflow-wrap: break-word;
 }
+
+
+/* SUBTITLE */
 
 .subtitle {
-  margin: 0 0 28px;
+  margin:
+    0 0 28px;
+
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.85);
+
+  line-height: 20px;
+
+  color:
+    rgba(255, 255, 255, 0.85);
+
   overflow-wrap: break-word;
 }
 
-/* ---------- Option list ---------- */
+
+/* =========================================================
+   OPTIONS
+========================================================= */
 
 .options {
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   gap: 12px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  text-align: left;
+
   width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  text-align: left;
 }
+
 
 .options li {
   width: 100%;
+
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
 }
+
 
 .option {
   width: 100%;
   max-width: 486px;
-  box-sizing: border-box;
+
   display: flex;
+
   align-items: center;
+
   gap: 14px;
-  background: var(--color-card);
+
+  padding:
+    14px 18px;
+
+  box-sizing: border-box;
+
+  background:
+    var(--color-card);
+
   border-radius: 18px;
-  box-shadow: var(--shadow-card);
-  padding: 14px 18px;
+
+  box-shadow:
+    var(--shadow-card);
+
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
+
 
 .option:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
+
 .option__icon-wrap {
-  flex-shrink: 0;
   width: 48px;
   height: 48px;
-  border-radius: 12px;
-  background: var(--color-chip);
+
+  flex-shrink: 0;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
+  border-radius: 12px;
+
+  background:
+    var(--color-chip);
 }
+
 
 .option__icon {
   width: 20px;
   height: 20px;
+
   object-fit: contain;
-  image-rendering: -webkit-optimize-contrast;
 }
+
 
 .option__icon--career {
   width: 28px;
   height: 28px;
 }
 
+
 .option__text {
   flex: 1;
+
   min-width: 0;
+
   display: flex;
+
   flex-direction: column;
+
   gap: 2px;
 }
 
+
 .option__title {
   font-size: 17px;
+
   line-height: 23px;
+
   font-weight: 600;
-  color: var(--color-text);
+
+  color:
+    var(--color-text);
+
   overflow-wrap: break-word;
 }
+
 
 .option__subtitle {
   font-size: 13px;
+
   font-weight: 500;
-  letter-spacing: 0.02em;
+
+  letter-spacing:
+    0.02em;
+
+  color:
+    var(--color-text-soft);
+
   overflow-wrap: break-word;
-  color: var(--color-text-soft);
 }
 
+
 .option__chevron {
-  flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: var(--color-green);
+
+  flex-shrink: 0;
+
+  color:
+    var(--color-green);
 }
+
 
 .option-divider {
   width: 100%;
   max-width: 223px;
+
   height: 1px;
-  background: var(--color-divider);
-  margin: 12px auto 0;
+
+  margin:
+    12px auto 0;
+
+  background:
+    var(--color-divider);
 }
 
-/* ---------- Socials & footer ---------- */
+
+/* =========================================================
+   SOCIAL LABEL
+========================================================= */
 
 .social-label-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
   width: 100%;
   max-width: 486px;
-  margin: 36px auto 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin:
+    36px auto 16px;
+
   padding: 0;
-  box-sizing: border-box;
 }
 
+
 .social-label {
-  margin: 0;
   min-width: 0;
+
+  margin: 0;
+
   font-size: 15px;
+
   line-height: 20px;
+
   font-weight: 600;
+
   color: #ffffff;
+
   white-space: nowrap;
 }
+
 
 .social-label__short {
   display: none;
 }
 
+
 .social-view-all {
   flex-shrink: 0;
-  background: none;
-  border: none;
+
   padding: 0;
+
+  background: none;
+
+  border: none;
+
   font-size: 15px;
+
   line-height: 20px;
+
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+
+  color:
+    rgba(255, 255, 255, 0.9);
+
   cursor: pointer;
+
   white-space: nowrap;
-  transition: color 0.15s ease;
 }
+
 
 .social-view-all:hover {
   color: #ffffff;
 }
 
+
 .social-view-all:active {
-  transform: translateY(1px);
+  transform:
+    translateY(1px);
 }
+
+
+/* =========================================================
+   SOCIALS
+========================================================= */
 
 .socials {
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   flex-wrap: wrap;
+
   gap: 15px;
-  margin: 0 0 28px 0;
+
+  margin:
+    0 0 28px;
+
   padding: 0;
+
   list-style: none;
 }
+
 
 .socials__link {
   width: 58px;
   height: 58px;
-  border-radius: 12px;
-  background: var(--color-card);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
   flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    var(--color-card);
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.06);
+
   text-decoration: none;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
+
 .socials__link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.1);
 }
+
 
 .socials__img {
   width: 24px;
   height: 24px;
-  object-fit: contain;
+
   display: block;
-  image-rendering: -webkit-optimize-contrast;
+
+  object-fit: contain;
 }
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .footer {
   margin: 0;
+
   font-size: 14px;
+
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
+
+  color:
+    rgba(255, 255, 255, 0.85);
+
   overflow-wrap: break-word;
 }
 
-/* ---------- Socials page ---------- */
+
+/* =========================================================
+   SOCIALS PAGE
+========================================================= */
 
 .socials-page {
   text-align: left;
 }
 
+
 .socials-page__title {
   margin-bottom: 6px;
+
   text-align: center;
 }
+
 
 .socials-page__title:focus {
   outline: none;
 }
 
+
 .socials-page__subtitle {
   margin-bottom: 24px;
+
   text-align: center;
 }
 
+
 .socials-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
   width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
 }
+
 
 .socials-list li {
   width: 100%;
+
   display: flex;
+
   justify-content: center;
 }
+
 
 .socials-row {
   width: 100%;
   max-width: 486px;
-  box-sizing: border-box;
+
   display: flex;
+
   align-items: center;
+
   gap: 14px;
-  background: var(--color-card);
+
+  padding:
+    16px 18px;
+
+  box-sizing: border-box;
+
+  background:
+    var(--color-card);
+
   border-radius: 18px;
-  box-shadow: var(--shadow-card);
-  padding: 16px 18px;
+
+  box-shadow:
+    var(--shadow-card);
+
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+
 
 .socials-row:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transform:
+    translateY(-2px);
 }
 
+
 .socials-row__icon-wrap {
-  flex-shrink: 0;
   width: 52px;
   height: 52px;
-  border-radius: 14px;
-  background-color: #E7F3E0;
+
+  flex-shrink: 0;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
+  border-radius: 14px;
+
+  background:
+    #E7F3E0;
 }
+
 
 .socials-row__icon {
   width: 26px;
   height: 26px;
+
   object-fit: contain;
-  image-rendering: -webkit-optimize-contrast;
 }
+
 
 .socials-row__text {
   flex: 1;
+
   min-width: 0;
+
   display: flex;
+
   flex-direction: column;
+
   gap: 2px;
 }
 
+
 .socials-row__name {
   font-size: 17px;
+
   line-height: 23px;
+
   font-weight: 600;
-  color: var(--color-text);
+
+  color:
+    var(--color-text);
+
   overflow-wrap: break-word;
 }
+
 
 .socials-row__subtitle {
   font-size: 13px;
+
   line-height: 18px;
+
   font-weight: 500;
-  color: var(--color-text-soft);
+
+  color:
+    var(--color-text-soft);
+
   overflow-wrap: break-word;
 }
 
+
 .socials-row__chevron {
-  flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: var(--color-green);
+
+  flex-shrink: 0;
+
+  color:
+    var(--color-green);
 }
+
 
 .socials-page__back {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
   width: 100%;
   max-width: 486px;
-  margin: 18px auto 0;
-  padding: 14px 18px;
-  background: var(--color-card);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  margin:
+    18px auto 40px;
+
+  padding:
+    14px 18px;
+
+  background:
+    var(--color-card);
+
+  border:
+    1px solid rgba(0, 0, 0, 0.06);
+
   border-radius: 999px;
-  box-shadow: var(--shadow-card);
+
+  box-shadow:
+    var(--shadow-card);
+
   font-size: 16px;
+
   font-weight: 600;
-  color: black;
-  margin-bottom: 40px;
+
+  color: #000000;
+
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.socials-page__back:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-.socials-page__back:active {
-  transform: translateY(0);
-}
 
 .socials-page__back-icon {
   width: 18px;
   height: 18px;
-  color: var(--color-text);
+
+  color:
+    var(--color-text);
 }
 
-/* ---------- Responsiveness (Desktop/Tablet) ---------- */
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+
+@media (max-width: 1370px) {
+  .person {
+    position: fixed;
+    bottom: 0;
+    height: clamp(440px, 95vh, 680px);
+    width: auto;
+    max-width: none;
+    margin: 0;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .person__img {
+    height: 100%;
+    max-width: 660px;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    object-position: bottom center;
+    animation: none !important;
+  }
+
+  /* Erkak kishi — chap tomonda */
+  .person--men {
+    left: -0.5%;
+    z-index: 1;
+  }
+
+  /* Qiz kishi — o'ng tomonda, erkakdan aniq masofada */
+  .person--girl {
+    right: 0.2%;
+    z-index: 2;
+  }
+
+ /* Erkak kishi qo'li ustidagi yurak */
+  .heart-icon--men {
+    left: 14%;
+    height: 25%;
+    top: 39%;
+  }
+
+
+  /* Qiz kishi o'ng qo'li ustidagi yurak */
+  .heart-icon--girl-1 {
+    left: 85%;
+    top: 46%;
+    height: 28%;
+  }
+
+  /* Qiz kishi chap qo'li ustidagi yurak */
+  .heart-icon--girl-2 {
+    left: 53%;
+    top: 46%;
+    height: 19%;
+  }
+}
+
+@media (max-width: 1330px) {
+
+ /* Erkak kishi qo'li ustidagi yurak */
+  .heart-icon--men {
+    left: 14%;
+    height: 25%;
+    top: 50%;
+  }
+
+
+  /* Qiz kishi o'ng qo'li ustidagi yurak */
+  .heart-icon--girl-1 {
+    left: 85%;
+    top: 59%;
+    height: 30%;
+  }
+
+  /* Qiz kishi chap qo'li ustidagi yurak */
+  .heart-icon--girl-2 {
+    left: 53%;
+    top: 59%;
+    height: 21%;
+  }
+}
+
 
 @media (max-width: 1024px) {
+
   .bg-pattern--desktop {
-    width: clamp(250px, 34vw, 400px);
+    width:
+      clamp(250px,
+        34vw,
+        400px);
   }
+
 
   .bg-pattern--desktop-left {
     left: -4vw;
     bottom: -2vh;
   }
 
+
   .bg-pattern--desktop-right {
     right: -4vw;
     bottom: -2vh;
   }
 
-  .person {
-    height: clamp(440px, 72vh, 640px);
-  }
-
-  .person--men {
-    left: 0.5vw;
-  }
-
-  .person--girl {
-    right: 0.5vw;
-  }
-
-  .heart-icon--girl-1 {
-    right: 12vw;
-    bottom: 54vh;
-  }
-
-  .heart-icon--girl-2 {
-    right: 5vw;
-    bottom: 51vh;
-  }
 
   .social-label__full {
     display: none;
   }
 
+
   .social-label__short {
     display: inline;
   }
+
+
+  .person {
+    height:
+      clamp(440px,
+        72vh,
+        640px);
+  }
+
+
+  .person--men {
+    left: 0;
+  }
+
+
+  .person--girl {
+    right: 0;
+  }
 }
 
-/* ---------- Mobile Responsive (Odamlar yonma-yon, bir xil o'lchamda) ---------- */
+
+
+
+
+
+
+
+/* =========================================================
+   MOBILE
+   600px DAN KICHIK
+========================================================= */
 
 @media (max-width: 600px) {
 
-  /* Desktop naqshlarini o'chiramiz, mobil naqshlarini yoqamiz */
+  /* ---------------------------------
+     MOBILE BACKGROUNDS
+  --------------------------------- */
+
   .bg-pattern--desktop {
     display: none;
   }
@@ -665,13 +1299,11 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: auto;
-    bottom: auto;
-    transform: none;
     width: 100%;
     height: auto;
     z-index: 0;
     pointer-events: none;
+    transform: none;
   }
 
   .bg-pattern--mobile-top {
@@ -685,84 +1317,16 @@
     right: 0;
   }
 
-  /* Odamlar konteyneri: pastda joylashadi, yuqori tekstga tegmaydi */
-  .people {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 58vh;
-    margin-top: 12px;
-    overflow: hidden;
-  }
-
-  /* Ikkalasi ham bir xil o'lchamda — yonma-yon, faqat
-     ozgina bir-biriga tegib turadi (ustma-ust emas) */
-  .person {
-    position: absolute !important;
-    bottom: -9vh !important;
-    height: 116% !important;
-    width: auto !important;
-    max-width: none !important;
-    margin: 0 !important;
-    object-fit: contain;
-    object-position: bottom center;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  /* Erkak kishi — chap tomonda */
-  .person--men {
-    left: -10% !important;
-    z-index: 1;
-  }
-
-  /* Qiz kishi — o'ng tomonda, erkakdan ozgina masofada */
-  .person--girl {
-    right: -18% !important;
-    z-index: 2;
-  }
-
-  /* Heart icon — mobilda ham erkak kishi (men.svg) qo'li ustida */
-  .heart-icon {
-    position: absolute !important;
-    left: -3% !important;
-    width: clamp(112px, 19vw, 60px) !important;
-    z-index: 2;
-    top: 140px;
-  }
-
-  /* ---------- Mobile Heart2 va Heart3 (Qizning barmoqlari uchida tursin) ---------- */
-
-  .heart-icon--girl-1,
-  .heart-icon--girl-2 {
-    display: block;
-    position: absolute !important;
-    z-index: 3;
-    height: auto !important;
-  }
-
-  /* heart2.svg: Qizning o'ng barmoq uchi ustida (390px va atrofidagi ekranlar uchun) */
-  .heart-icon--girl-1 {
-    top: 37% !important;
-    left: 35% !important;
-    right: auto !important;
-    bottom: auto !important;
-    width: 130px !important;
-    transform: rotate(2deg);
-  }
-
-  /* heart3.svg: Qizning chap (o'rtadagi) barmoq uchi ustida */
-  .heart-icon--girl-2 {
-    top: 37% !important;
-    left: 77% !important;
-    right: auto !important;
-    bottom: auto !important;
-    width: 100px !important;
-    transform: rotate(-7deg);
-  }
+  /* ---------------------------------
+     HEADER
+  --------------------------------- */
 
   .nav__inner {
     padding: 16px 18px 8px;
+  }
+
+  .brand__logo {
+    height: 34px;
   }
 
   .lang__trigger {
@@ -771,9 +1335,9 @@
     padding: 0 10px;
   }
 
-  .brand__logo {
-    height: 34px;
-  }
+  /* ---------------------------------
+     CONTENT
+  --------------------------------- */
 
   .content {
     padding: 16px 16px 20px;
@@ -799,115 +1363,242 @@
     width: 54px;
     height: 54px;
   }
-}
 
-/* Kichik ekranlar (380px va undan kichik) */
-@media (max-width: 380px) {
-  .content {
-    padding: 14px 14px 20px;
-  }
+  /* =====================================================
+     PEOPLE — MOBILE
 
-  .social-label,
-  .social-view-all {
-    font-size: 13px;
-    line-height: 18px;
-  }
+     Ikkalasi juda katta, bir-biriga yaqin,
+     va sahifaning eng tagiga yopishgan.
+  ===================================================== */
 
-  .socials__link {
-    width: 50px;
-    height: 50px;
-  }
-
-  .option {
-    padding: 11px 12px;
-    gap: 12px;
-  }
-
-  .option__icon-wrap {
-    width: 44px;
-    height: 44px;
-  }
-
-  .option__chevron {
-    width: 18px;
-    height: 18px;
-  }
 
   .people {
-    height: 52vh;
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    /* Ortiqcha bo'sh joy qolmasligi uchun
+       balandlikni rasmga qarab avtomatik olish */
+    min-height: 0;
+    height: 85vh;
+    margin: auto 0 0;
+    /* sahifa pastiga "yopishtirish" */
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    /* pastga tekislash */
+    justify-content: center;
+
+    gap: 0;
+
+    overflow: visible;
+
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* =====================================================
+     HAR IKKALA ODAM — KATTA VA YAQIN
+  ===================================================== */
+
+  .people {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 640px;
+    margin-top: -60px;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
   .person {
-    bottom: -8vh !important;
-    height: 112% !important;
+    position: absolute;
+    bottom: 0;
+    height: 120%;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    pointer-events: none;
+    user-select: none;
   }
 
+
+  .person__img {
+    height: 100%;
+    max-width: 660px;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    animation: none !important;
+  }
+
+
+
+  /* Erkak kishi — chap tomonda */
   .person--men {
-    left: -4% !important;
+    left: -0.5%;
+    top: -250px;
+    height: 140%;
+    z-index: 1;
   }
 
+  /* Qiz kishi — o'ng tomonda, erkakdan aniq masofada */
   .person--girl {
-    right: -4% !important;
+    height: 130%;
+    right: 0.2%;
+    z-index: 2;
+    top: -192px;
   }
 
-  .heart-icon {
-    bottom: 38vh !important;
-    left: 3% !important;
+
+
+  /* Erkak kishi qo'li ustidagi yurak */
+  .heart-icon--men {
+    left: 12%;
+    height: 22%;
+    top: 52%;
   }
 
+  /* Qiz kishi o'ng qo'li ustidagi yurak */
   .heart-icon--girl-1 {
-    top: 35% !important;
-    right: 5% !important;
-    width: 25px !important;
+    left: 95%;
+    top: 55%;
+    height: 25%;
   }
 
+  /* Qiz kishi chap qo'li ustidagi yurak */
   .heart-icon--girl-2 {
-    top: 38% !important;
-    right: 42% !important;
-    width: 22px !important;
+    left: 49%;
+    top: 56%;
+    height: 17.5%;
   }
 }
 
-@media (max-width: 360px) {
-  .lang__label {
-    display: none;
-  }
-
-  .lang__chevron {
-    margin-left: 0;
-  }
+@media (max-width: 450px) {
 
   .people {
-    height: 46vh;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 640px;
+    margin-top: -60px;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
-  .person {
-    bottom: -7vh !important;
-    height: 108% !important;
+  .person__img {
+    height: 100%;
+    max-width: 660px;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    animation: none !important;
   }
 
+  /* Erkak kishi — chap tomonda */
   .person--men {
-    left: -5% !important;
+    left: -0.5%;
+    top: -192px;
+    height: 130%;
+    z-index: 1;
   }
 
+  /* Qiz kishi — o'ng tomonda, erkakdan aniq masofada */
   .person--girl {
-    right: -5% !important;
+    top: -120px;
+    height: 120%;
+    right: 0.2%;
+    z-index: 2;
   }
 
-  .heart-icon {
-    bottom: 34vh !important;
-    left: 4% !important;
+
+
+
+
+  /* Erkak kishi qo'li ustidagi yurak */
+  .heart-icon--men {
+    left: 11%;
+    height: 22%;
+    top: 52.8%;
   }
 
+
+  /* Qiz kishi o'ng qo'li ustidagi yurak */
   .heart-icon--girl-1 {
-    top: 34% !important;
-    right: 4% !important;
-    width: 23px !important;
+    left: 94%;
+    top: 56%;
+    height: 25%;
   }
 
+  /* Qiz kishi chap qo'li ustidagi yurak */
   .heart-icon--girl-2 {
-    top: 37% !important;
-    right: 41% !important;
-    width: 20px !important;
+    left: 50%;
+    top: 55%;
+    height: 17.5%;
   }
+
+}
+
+
+
+@media (max-width: 390px) {
+
+  .people{
+    height: 500px;
+  }
+
+  .person__img {
+    height: 90%;
+    max-width: 660px;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    animation: none !important;
+  }
+
+  /* Erkak kishi — chap tomonda */
+  .person--men {
+    left: -0.5%;
+    top: -145px;
+    height: 145%;
+    z-index: 1;
+  }
+
+  /* Qiz kishi — o'ng tomonda, erkakdan aniq masofada */
+  .person--girl {
+    top: -110px;
+    height: 137%;
+    right: 0.2%;
+    z-index: 2;
+  }
+
+
+
+
+
+
+  /* Erkak kishi qo'li ustidagi yurak */
+  .heart-icon--men {
+    left: 12%;
+    height: 20%;
+    top: 47%;
+  }
+
+
+  /* Qiz kishi o'ng qo'li ustidagi yurak */
+  .heart-icon--girl-1 {
+    left: 94%;
+    top: 50%;
+    height: 22%;
+  }
+
+  /* Qiz kishi chap qo'li ustidagi yurak */
+  .heart-icon--girl-2 {
+    left: 49%;
+    top: 49%;
+    height: 17.5%;
+  }
+
 }
