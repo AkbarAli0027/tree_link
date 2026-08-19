@@ -1004,7 +1004,7 @@ export default function App() {
               srcSet="/patterns/mb_men.svg"
             />
             <img
-              src="/patterns/men.svg"
+              src="/patterns/men.png"
               alt=""
               className="person__img"
             />
@@ -1037,7 +1037,7 @@ export default function App() {
               srcSet="/patterns/mb_girl.svg"
             />
             <img
-              src="/patterns/girl.svg"
+              src="/patterns/girl.png"
               alt=""
               className="person__img"
             />

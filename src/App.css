@@ -1136,6 +1136,34 @@ select {
    TABLET
 ========================================================= */
 
+@media (max-width: 1920px) {
+
+ /* Erkak kishi qo'li ustidagi yurak */
+  .heart-icon--men {
+    left: 15%;
+    height: 25%;
+    top: 38%;
+  }
+
+
+  /* Qiz kishi o'ng qo'li ustidagi yurak */
+  .heart-icon--girl-1 {
+    left: 85%;
+    top: 46%;
+    height: 28%;
+  }
+
+  /* Qiz kishi chap qo'li ustidagi yurak */
+  .heart-icon--girl-2 {
+    left: 53%;
+    top: 46%;
+    height: 19%;
+  }
+}
+
+
+
+
 
 @media (max-width: 1370px) {
   .person {
