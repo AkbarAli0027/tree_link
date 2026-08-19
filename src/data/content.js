@@ -73,7 +73,8 @@ export const SOCIALS = [
   { id: 'telegram', label: 'Telegram', subtitle: '@evosuz', icon: '/patterns/telegram.svg', href: 'https://t.me/evos' },
   { id: 'instagram', label: 'Instagram', subtitle: '@evosuz.uz', icon: '/patterns/instagram.svg', href: 'https://instagram.com/evos' },
   { id: 'facebook', label: 'Facebook', subtitle: 'EVOS Uzbekistan', icon: '/patterns/facebook.svg', href: 'https://facebook.com/evos' },
+  { id: 'threads', label: 'Threads', subtitle: '@evosuz.uz', icon: '/patterns/threds.svg', href: 'https://www.threads.com' },
   { id: 'youtube', label: 'YouTube', subtitle: 'EVOS Uzbekistan', icon: '/patterns/yutube.svg', href: 'https://youtube.com/@evos' },
   { id: 'linkedin', label: 'LinkedIn', subtitle: 'EVOS', icon: '/patterns/LinkedIn.svg', href: 'https://uz.linkedin.com/company/evos-hr' },
-  { id: 'threads', label: 'Threads', subtitle: '@evosuz.uz', icon: '/patterns/threds.svg', href: 'https://www.threads.com' },
+  { id: 'evos', label: 'evos', subtitle: 'EVOS', icon: '/patterns/web.svg', href: 'https://evos.uz/' },
 ]

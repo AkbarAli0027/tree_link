@@ -840,7 +840,7 @@ select {
 
   justify-content: center;
 
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 
   gap: 15px;
 
