@@ -1355,12 +1355,12 @@ select {
   }
 
   .socials {
-    gap: 10px;
+    gap: 8px;
   }
 
   .socials__link {
-    width: 58px;
-    height: 58px;
+    width: 44px;
+    height: 44px;
     border-radius: 10px;
   }
 
@@ -1610,14 +1610,14 @@ select {
   }
 
   .socials__link {
-    width: 58px;
-    height: 58px;
+    width: 42px;
+    height: 42px;
     border-radius: 10px;
   }
 
   .socials__img {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
 
 }
