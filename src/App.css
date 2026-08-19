@@ -840,9 +840,9 @@ select {
 
   justify-content: center;
 
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 
-  gap: 15px;
+  gap: 12px;
 
   margin:
     0 0 28px;
@@ -856,7 +856,6 @@ select {
 .socials__link {
   width: 58px;
   height: 58px;
-
   flex-shrink: 0;
 
   display: flex;
@@ -1356,12 +1355,18 @@ select {
   }
 
   .socials {
-    gap: 12px;
+    gap: 10px;
   }
 
   .socials__link {
-    width: 54px;
-    height: 54px;
+    width: 58px;
+    height: 58px;
+    border-radius: 10px;
+  }
+
+  .socials__img {
+    width: 20px;
+    height: 20px;
   }
 
   /* =====================================================
@@ -1599,6 +1604,21 @@ select {
     left: 49%;
     top: 49%;
     height: 17.5%;
+  }
+
+  .socials {
+    gap: 8px;
+  }
+
+  .socials__link {
+    width: 58px;
+    height: 58px;
+    border-radius: 10px;
+  }
+
+  .socials__img {
+    width: 24px;
+    height: 24px;
   }
 
 }
