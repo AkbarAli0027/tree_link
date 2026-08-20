@@ -207,59 +207,6 @@ select {
 
 
 /* =========================================================
-   HEARTS
-========================================================= */
-
-.heart-icon {
-  grid-area: 1 / 1;
-
-  position: absolute;
-
-  z-index: 5;
-
-  width: auto;
-
-  pointer-events: none;
-  user-select: none;
-
-  animation: none !important;
-
-  transform:
-    translate(-50%, -50%);
-}
-
-
-/* MAN HEART */
-
-.heart-icon--men {
-  left: 14%;
-  top: 36%;
-
-  height: 20%;
-}
-
-
-/* GIRL RIGHT HEART */
-
-.heart-icon--girl-1 {
-  left: 84.5%;
-  top: 43%;
-
-  height: 25%;
-}
-
-
-/* GIRL LEFT HEART */
-
-.heart-icon--girl-2 {
-  left: 53%;
-  top: 43%;
-
-  height: 17.5%;
-}
-
-
-/* =========================================================
    HEADER
 ========================================================= */
 
@@ -1136,33 +1083,9 @@ select {
    TABLET
 ========================================================= */
 
+
 @media (max-width: 1920px) {
-
- /* Erkak kishi qo'li ustidagi yurak */
-  .heart-icon--men {
-    left: 15%;
-    height: 25%;
-    top: 38%;
-  }
-
-
-  /* Qiz kishi o'ng qo'li ustidagi yurak */
-  .heart-icon--girl-1 {
-    left: 85%;
-    top: 46%;
-    height: 28%;
-  }
-
-  /* Qiz kishi chap qo'li ustidagi yurak */
-  .heart-icon--girl-2 {
-    left: 53%;
-    top: 46%;
-    height: 19%;
-  }
 }
-
-
-
 
 
 @media (max-width: 1370px) {
@@ -1199,55 +1122,7 @@ select {
     right: 0.2%;
     z-index: 2;
   }
-
- /* Erkak kishi qo'li ustidagi yurak */
-  .heart-icon--men {
-    left: 14%;
-    height: 25%;
-    top: 39%;
-  }
-
-
-  /* Qiz kishi o'ng qo'li ustidagi yurak */
-  .heart-icon--girl-1 {
-    left: 85%;
-    top: 46%;
-    height: 28%;
-  }
-
-  /* Qiz kishi chap qo'li ustidagi yurak */
-  .heart-icon--girl-2 {
-    left: 53%;
-    top: 46%;
-    height: 19%;
-  }
 }
-
-@media (max-width: 1330px) {
-
- /* Erkak kishi qo'li ustidagi yurak */
-  .heart-icon--men {
-    left: 14%;
-    height: 25%;
-    top: 50%;
-  }
-
-
-  /* Qiz kishi o'ng qo'li ustidagi yurak */
-  .heart-icon--girl-1 {
-    left: 85%;
-    top: 59%;
-    height: 30%;
-  }
-
-  /* Qiz kishi chap qo'li ustidagi yurak */
-  .heart-icon--girl-2 {
-    left: 53%;
-    top: 59%;
-    height: 21%;
-  }
-}
-
 
 @media (max-width: 1024px) {
 
@@ -1387,250 +1262,99 @@ select {
   }
 
   .socials__link {
-    width: 44px;
-    height: 44px;
+    width: 58px;
+    height: 58px;
     border-radius: 10px;
   }
 
   .socials__img {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
   }
 
   /* =====================================================
      PEOPLE — MOBILE
 
-     Ikkalasi juda katta, bir-biriga yaqin,
-     va sahifaning eng tagiga yopishgan.
+     Erkak chap devorga, qiz o'ng devorga tegib turadi.
+     Ikkalasi ham .people ichida position:absolute bilan
+     chetlarga mahkamlangan, orada bo'shliq qolmasin
+     deb balandlik (height) orqali kattalashtiriladi —
+     rasm eni avtomatik (width:auto) hisoblanadi, shu
+     sababli kattalashganda ular markazda bir-biriga
+     tegib/kesishib turadi.
   ===================================================== */
-
 
   .people {
     position: relative;
     left: auto;
     right: auto;
     bottom: auto;
+    top: auto;
     width: 100%;
-    /* Ortiqcha bo'sh joy qolmasligi uchun
-       balandlikni rasmga qarab avtomatik olish */
-    min-height: 0;
-    height: 85vh;
-    margin: auto 0 0;
-    /* sahifa pastiga "yopishtirish" */
+    height: clamp(500px, 105vh, 720px);
+    margin: 24px 0 0;
     padding: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    /* pastga tekislash */
-    justify-content: center;
-
-    gap: 0;
-
+    display: block;
     overflow: visible;
-
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  /* =====================================================
-     HAR IKKALA ODAM — KATTA VA YAQIN
-  ===================================================== */
-
-  .people {
-    position: relative;
     z-index: 1;
-    width: 100%;
-    height: 640px;
-    margin-top: -60px;
-    overflow-x: hidden;
-    overflow-y: visible;
+    pointer-events: none;
   }
 
   .person {
     position: absolute;
     bottom: 0;
-    height: 120%;
+    top: auto;
+    height: 100%;
     width: auto;
     max-width: none;
     margin: 0;
     pointer-events: none;
     user-select: none;
+    overflow: visible;
   }
 
-
-  .person__img {
-    height: 100%;
-    max-width: 660px;
-    margin: 0;
-    padding: 0;
-    object-fit: contain;
-    animation: none !important;
-  }
-
-
-
-  /* Erkak kishi — chap tomonda */
+  /* Erkak — chap devorga tegib turadi */
   .person--men {
-    left: -0.5%;
-    top: -250px;
-    height: 140%;
+    left: 0;
+    right: auto;
     z-index: 1;
   }
 
-  /* Qiz kishi — o'ng tomonda, erkakdan aniq masofada */
+  /* Qiz — o'ng devorga tegib turadi */
   .person--girl {
-    height: 130%;
-    right: 0.2%;
+    right: 0;
+    left: auto;
     z-index: 2;
-    top: -192px;
   }
 
-
-
-  /* Erkak kishi qo'li ustidagi yurak */
-  .heart-icon--men {
-    left: 12%;
-    height: 22%;
-    top: 52%;
+  .person__img {
+    width: auto;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    object-fit: contain;
+    object-position: bottom center;
+    animation: none !important;
   }
 
-  /* Qiz kishi o'ng qo'li ustidagi yurak */
-  .heart-icon--girl-1 {
-    left: 95%;
-    top: 55%;
-    height: 25%;
-  }
-
-  /* Qiz kishi chap qo'li ustidagi yurak */
-  .heart-icon--girl-2 {
-    left: 49%;
-    top: 56%;
-    height: 17.5%;
-  }
 }
 
 @media (max-width: 450px) {
 
   .people {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 640px;
-    margin-top: -60px;
-    overflow-x: hidden;
-    overflow-y: visible;
-  }
-
-  .person__img {
-    height: 100%;
-    max-width: 660px;
-    margin: 0;
-    padding: 0;
-    object-fit: contain;
-    animation: none !important;
-  }
-
-  /* Erkak kishi — chap tomonda */
-  .person--men {
-    left: -0.5%;
-    top: -192px;
-    height: 130%;
-    z-index: 1;
-  }
-
-  /* Qiz kishi — o'ng tomonda, erkakdan aniq masofada */
-  .person--girl {
-    top: -120px;
-    height: 120%;
-    right: 0.2%;
-    z-index: 2;
-  }
-
-
-
-
-
-  /* Erkak kishi qo'li ustidagi yurak */
-  .heart-icon--men {
-    left: 11%;
-    height: 22%;
-    top: 52.8%;
-  }
-
-
-  /* Qiz kishi o'ng qo'li ustidagi yurak */
-  .heart-icon--girl-1 {
-    left: 94%;
-    top: 56%;
-    height: 25%;
-  }
-  /* Qiz kishi chap qo'li ustidagi yurak */
-  .heart-icon--girl-2 {
-    left: 50%;
-    top: 55%;
-    height: 17.5%;
+    height: clamp(460px, 100vh, 660px);
   }
 
 }
 
 
 
-@media (max-width: 390px) {
+@media (max-width: 400px) {
 
-  .people{
-    height: 500px;
-  }
-
-  .person__img {
-    height: 90%;
-    max-width: 660px;
-    margin: 0;
-    padding: 0;
-    object-fit: contain;
-    animation: none !important;
-  }
-
-  /* Erkak kishi — chap tomonda */
-  .person--men {
-    left: -0.5%;
-    top: -145px;
-    height: 145%;
-    z-index: 1;
-  }
-
-  /* Qiz kishi — o'ng tomonda, erkakdan aniq masofada */
-  .person--girl {
-    top: -110px;
-    height: 137%;
-    right: 0.2%;
-    z-index: 2;
-  }
-
-
-
-
-
-
-  /* Erkak kishi qo'li ustidagi yurak */
-  .heart-icon--men {
-    left: 12%;
-    height: 20%;
-    top: 47%;
-  }
-
-
-  /* Qiz kishi o'ng qo'li ustidagi yurak */
-  .heart-icon--girl-1 {
-    left: 94%;
-    top: 50%;
-    height: 22%;
-  }
-
-  /* Qiz kishi chap qo'li ustidagi yurak */
-  .heart-icon--girl-2 {
-    left: 49%;
-    top: 49%;
-    height: 17.5%;
+  .people {
+    height: clamp(320px, 78vh, 460px);
   }
 
   .socials {
@@ -1638,14 +1362,14 @@ select {
   }
 
   .socials__link {
-    width: 42px;
-    height: 42px;
+    width: 58px;
+    height: 58px;
     border-radius: 10px;
   }
 
   .socials__img {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
   }
 
 }

@@ -985,6 +985,8 @@ export default function App() {
       {/* =========================
           PEOPLE
           FAQAT MEN + GIRL
+          (yuraklar rasmning ichida,
+          alohida SVG kerak emas)
       ========================= */}
 
       <div className="people">
@@ -1004,20 +1006,11 @@ export default function App() {
               srcSet="/patterns/mb_men.svg"
             />
             <img
-              src="/patterns/men.png"
+              src="/patterns/men.svg"
               alt=""
               className="person__img"
             />
           </picture>
-
-          <img
-            src="/patterns/heart1.svg"
-            alt=""
-            className="
-              heart-icon
-              heart-icon--men
-            "
-          />
 
         </div>
 
@@ -1037,29 +1030,11 @@ export default function App() {
               srcSet="/patterns/mb_girl.svg"
             />
             <img
-              src="/patterns/girl.png"
+              src="/patterns/girl.svg"
               alt=""
               className="person__img"
             />
           </picture>
-
-          <img
-            src="/patterns/heart2.svg"
-            alt=""
-            className="
-              heart-icon
-              heart-icon--girl-1
-            "
-          />
-
-          <img
-            src="/patterns/heart3.svg"
-            alt=""
-            className="
-              heart-icon
-              heart-icon--girl-2
-            "
-          />
 
         </div>
 
