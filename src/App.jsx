@@ -1499,6 +1499,129 @@
 
 
 
+// import { useState } from 'react'
+// import './App.css'
+
+// import {
+//   ORDER_OPTIONS,
+//   SOCIALS,
+//   TRANSLATIONS,
+// } from './data/content'
+
+// import SiteHeader from './components/SiteHeader'
+// import BackgroundPatterns from './components/BackgroundPatterns'
+// import PeopleDecor from './components/PeopleDecor'
+// import OrderOptionRow from './components/OrderOptionRow'
+
+// // Ijtimoiy tarmoqlar sahifasining alohida domeni.
+// // Lokal test uchun VITE_SOCIAL_APP_URL ni .env faylida bering,
+// // masalan: VITE_SOCIAL_APP_URL=https://social.evos.uz
+// const SOCIAL_APP_URL = import.meta.env.VITE_SOCIAL_APP_URL || '/social.html'
+
+// export default function App() {
+//   const [lang, setLang] = useState('uz')
+//   const t = TRANSLATIONS[lang]
+
+//   return (
+//     <div className="page">
+
+//       <BackgroundPatterns />
+
+//       <SiteHeader lang={lang} onLangChange={setLang} />
+
+//       <main className="content">
+
+//         <h1 className="title">
+//           {t.title}
+//         </h1>
+
+//         <p className="subtitle">
+//           {t.subtitle}
+//         </p>
+
+//         <ul className="options">
+//           {ORDER_OPTIONS.map((option) => (
+//             <OrderOptionRow
+//               key={option.id}
+//               option={option}
+//               text={t.options[option.id]}
+//             />
+//           ))}
+//         </ul>
+
+//         <div className="social-label-row">
+
+//           <p className="social-label">
+
+//             <span className="social-label__full">
+//               {t.socialLabel}
+//             </span>
+
+//             <span className="social-label__short">
+//               {t.socialLabelShort}
+//             </span>
+
+//           </p>
+
+//           <a
+//             href={SOCIAL_APP_URL}
+//             className="social-view-all"
+//           >
+//             {t.viewAll}
+//           </a>
+
+//         </div>
+
+//         <ul className="socials">
+
+//           {SOCIALS.map((social) => (
+//             <li key={social.id}>
+
+//               <a
+//                 className="socials__link"
+//                 href={social.href}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 aria-label={social.label}
+//               >
+
+//                 <img
+//                   src={social.icon}
+//                   alt=""
+//                   className="socials__img"
+//                 />
+
+//               </a>
+
+//             </li>
+//           ))}
+
+//         </ul>
+
+//         <p className="footer">
+//           {t.footer}
+//         </p>
+
+//       </main>
+
+//       <PeopleDecor />
+
+//     </div>
+//   )
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { useState } from 'react'
 import './App.css'
 
@@ -1514,8 +1637,6 @@ import PeopleDecor from './components/PeopleDecor'
 import OrderOptionRow from './components/OrderOptionRow'
 
 // Ijtimoiy tarmoqlar sahifasining alohida domeni.
-// Lokal test uchun VITE_SOCIAL_APP_URL ni .env faylida bering,
-// masalan: VITE_SOCIAL_APP_URL=https://social.evos.uz
 const SOCIAL_APP_URL = import.meta.env.VITE_SOCIAL_APP_URL || '/social.html'
 
 export default function App() {
@@ -1566,6 +1687,8 @@ export default function App() {
           <a
             href={SOCIAL_APP_URL}
             className="social-view-all"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {t.viewAll}
           </a>
