@@ -85,7 +85,7 @@ select {
 
 
 /* =========================================================
-   BACKGROUND PATTERNS
+   BACKGROUND PATTERNS (HOME PAGE)
 ========================================================= */
 
 .bg-pattern {
@@ -777,7 +777,7 @@ select {
 
 
 /* =========================================================
-   SOCIALS
+   SOCIALS (HOME PAGE ICON GRID)
 ========================================================= */
 
 .socials {
@@ -865,10 +865,91 @@ select {
 
 
 /* =========================================================
-   SOCIALS PAGE
+   SOCIALS PAGE (BUTUN SAHIFA — OQ FON)
 ========================================================= */
 
+/* Butun sahifani qoplovchi oq fonli wrapper.
+   Bu endi mustaqil sahifa: o'z header'i, oq foni va
+   chap/o'ng tomonda naqishli fon rasmlari
+   (left_bgp.svg / right_bgp.svg) bor. */
+.socials-page-wrap {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background:
+    linear-gradient(180deg,
+      #E8F5E5 0%,
+      #F4F5F2 100%);
+
+  overflow-x: hidden;
+
+  box-sizing: border-box;
+}
+
+/* Bu sahifadagi header (nav) oq fon ustida bo'lgani uchun
+   logotip va boshqa elementlar aniq ko'rinishi kerak */
+.socials-page-wrap .nav {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Chap va o'ng naqishli fon rasmlari — kichikroq va
+   burchaklarga joylashtirilgan holda */
+.socials-bg-pattern {
+  position: absolute;
+
+  height: auto;
+  width: clamp(140px, 16vw, 240px);
+
+  max-width: none;
+
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+
+  z-index: 0;
+}
+
+
+/* Chapdagi naqish — nav ostida, biroz pastroqda */
+.socials-bg-pattern--left {
+  left: 0;
+  top: 110px;
+}
+
+
+/* O'ngdagi naqish — sahifaning pastki burchagida */
+.socials-bg-pattern--right {
+  right: 0;
+  bottom: 0;
+  top: auto;
+}
+
+
+/* Asosiy kontent (title, ro'yxat, back tugmasi)
+   naqishlar ustida chiqishi uchun */
 .socials-page {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+  max-width: 534px;
+
+  margin: 0 auto;
+
+  padding:
+    20px 24px 40px;
+
+  box-sizing: border-box;
+
   text-align: left;
 }
 
@@ -877,6 +958,8 @@ select {
   margin-bottom: 6px;
 
   text-align: center;
+
+  color: var(--color-text);
 }
 
 
@@ -889,59 +972,44 @@ select {
   margin-bottom: 24px;
 
   text-align: center;
+
+  color: var(--color-text-soft);
 }
 
 
 .socials-list {
   width: 100%;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   gap: 12px;
-
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
 
 .socials-list li {
   width: 100%;
-
+  height: 70px;
   display: flex;
-
   justify-content: center;
 }
 
 
 .socials-row {
   width: 100%;
-  max-width: 486px;
-
+  max-width: 480px;
   display: flex;
-
   align-items: center;
-
   gap: 14px;
-
-  padding:
-    16px 18px;
-
+  padding: 16px 18px;
   box-sizing: border-box;
-
   background:
     var(--color-card);
-
   border-radius: 18px;
-
   box-shadow:
     var(--shadow-card);
-
   text-decoration: none;
 }
 
@@ -953,28 +1021,21 @@ select {
 
 
 .socials-row__icon-wrap {
-  width: 52px;
-  height: 52px;
-
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   border-radius: 14px;
-
   background:
     #E7F3E0;
 }
 
 
 .socials-row__icon {
-  width: 26px;
-  height: 26px;
-
+  width: 18px;
+  height: 18px;
   object-fit: contain;
 }
 
@@ -1034,38 +1095,24 @@ select {
 .socials-page__back {
   width: 100%;
   max-width: 486px;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 6px;
-
   margin:
     18px auto 40px;
-
   padding:
     14px 18px;
-
   background:
     var(--color-card);
-
   border:
     1px solid rgba(0, 0, 0, 0.06);
-
   border-radius: 999px;
-
   box-shadow:
     var(--shadow-card);
-
   font-size: 16px;
-
   font-weight: 600;
-
   color: #000000;
-
   cursor: pointer;
 }
 
@@ -1073,9 +1120,18 @@ select {
 .socials-page__back-icon {
   width: 18px;
   height: 18px;
-
   color:
     var(--color-text);
+}
+
+
+/* Socials sahifasi oq fonli bo'lgani uchun footer matni
+   to'q rangda ko'rsatiladi (home sahifadagi footer oq
+   qoladi, chunki u yashil fon ustida) */
+.socials-page__footer {
+  margin-top: 4px;
+  text-align: center;
+  color: var(--color-text-soft);
 }
 
 
@@ -1084,8 +1140,7 @@ select {
 ========================================================= */
 
 
-@media (max-width: 1920px) {
-}
+@media (max-width: 1920px) {}
 
 
 @media (max-width: 1370px) {
@@ -1114,12 +1169,14 @@ select {
   /* Erkak kishi — chap tomonda */
   .person--men {
     left: -0.5%;
+    height: 104%;
     z-index: 1;
   }
 
   /* Qiz kishi — o'ng tomonda, erkakdan aniq masofada */
   .person--girl {
     right: 0.2%;
+    height: 100%;
     z-index: 2;
   }
 }
@@ -1172,6 +1229,11 @@ select {
   .person--girl {
     right: 0;
   }
+
+
+  .socials-bg-pattern {
+    width: clamp(110px, 14vw, 180px);
+  }
 }
 
 
@@ -1189,7 +1251,7 @@ select {
 @media (max-width: 600px) {
 
   /* ---------------------------------
-     MOBILE BACKGROUNDS
+     MOBILE BACKGROUNDS (HOME PAGE)
   --------------------------------- */
 
   .bg-pattern--desktop {
@@ -1270,6 +1332,21 @@ select {
   .socials__img {
     width: 24px;
     height: 24px;
+  }
+
+  /* ---------------------------------
+     SOCIALS PAGE — MOBILE
+     Fon naqishlari kichrayadi va faqat
+     chetlarda ozgina ko'rinib turadi
+  --------------------------------- */
+
+  .socials-bg-pattern {
+    width: 90px;
+    opacity: 0.7;
+  }
+
+  .socials-page {
+    padding: 16px 16px 20px;
   }
 
   /* =====================================================
@@ -1370,6 +1447,10 @@ select {
   .socials__img {
     width: 24px;
     height: 24px;
+  }
+
+  .socials-bg-pattern {
+    width: 60px;
   }
 
 }
