@@ -1,32 +1,45 @@
+# image: node:18-alpine
+
+# cache:
+#   key:
+#     files:
+#       - package-lock.json
+#   paths:
+#     - .npm/
+
+# before_script:
+#   - npm ci --cache .npm --prefer-offline
+
+# pages:
+#   stage: deploy
+#   script:
+#     - npm run build
+#     - rm -rf public
+#     - cp -r dist public
+#     - |
+#       if [ "$CI_COMMIT_BRANCH" = "Link_tree_social_page" ]; then
+#         cp dist/social.html public/index.html
+#       fi
+#   artifacts:
+#     paths:
+#       - public
+#   rules:
+#     - if: '$CI_COMMIT_BRANCH == "main"'
+#     - if: '$CI_COMMIT_BRANCH == "Link_tree_social_page"'
+
+
+
 image: node:18-alpine
-
-cache:
-  key:
-    files:
-      - package-lock.json
-  paths:
-    - .npm/
-
-before_script:
-  - npm ci --cache .npm --prefer-offline
 
 pages:
   stage: deploy
   script:
+    - npm ci
     - npm run build
-    - |
-      if [ "$CI_COMMIT_BRANCH" = "Link_tree_social_page" ]; then
-        echo "Social page uchun index.html almashtirilmoqda..."
-        mv dist/social.html dist/index.html
-      fi
-    - mkdir public
-    - mv dist/* public/
+    - rm -rf public
+    - cp -r dist public
   artifacts:
     paths:
       - public
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
-    - if: '$CI_COMMIT_BRANCH == "Link_tree_social_page"'
-  environment:
-    name: pages/$CI_COMMIT_BRANCH
-    url: $CI_PAGES_URL
